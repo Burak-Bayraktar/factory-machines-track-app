@@ -3,10 +3,11 @@ const http = require("http");
 const { LoginToSystem } = require("./helpers");
 const { FETCH_MACHINES, FETCH_MACHINE } = require("./helpers/apollo/queries");
 const { client } = require("./helpers/apollo");
-
+const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 
+app.use(cors())
 app.use(async (req) => {
   try {
     const result = await LoginToSystem();
