@@ -1,11 +1,11 @@
-import axios from "axios"
+import axiosInstance from "../axiosInstance";
 
 export async function getData() {
-    const { data } = await axios.get("http://localhost:5000/machines", (res) => res)
+    const { data } = await axiosInstance.get("/machines", (res) => res)
     return data;
 }
 
 export async function getSingleData(pk) {
-    const { data } = await axios.get(`http://localhost:5000/machine/${pk}`, (res) => ({res}))
+    const { data } = await axiosInstance.get(`/machine/${pk}`, (res) => ({res}))
     return data;
 }
